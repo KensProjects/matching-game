@@ -1,0 +1,19 @@
+#navbar {
+    width: 100%;
+    height: 4rem;
+    background-color: blueviolet;
+    color: white;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#heading {
+    font-size: xx-large;
+}
+@media screen and (max-width:678px){
+    #heading {
+        font-size: large;
+    }
+}
