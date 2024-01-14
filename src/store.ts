@@ -21,13 +21,12 @@ export type MatchingGameStoreTypes = {
 
 export const matchingGameStore = create<MatchingGameStoreTypes>()((set, get) => ({
     points: 0,
-    roundsLeft: 5,
+    roundsLeft: 3,
     isGameOver: false,
     selectedBoardTileIndex: undefined,
     currentGuessesArray: [],
     correctGuessesArray: [],
 
-    //update later
     setCorrectGuessesArray: () => {
         const currentGuesses = get().currentGuessesArray
         set((state) => ({ ...state, correctGuessesArray: [...state.correctGuessesArray, currentGuesses].flat() }))
@@ -48,7 +47,10 @@ export const matchingGameStore = create<MatchingGameStoreTypes>()((set, get) => 
         set((state) => ({ points: state.points + 1 }))
         const points = get().points
         if (points === 4) {
-            set({ isGameOver: true })
+
+            setTimeout(() => {
+                set({ isGameOver: true })
+            }, 1000)
         }
     },
     resetPoints: () => set({ points: 0 }),
